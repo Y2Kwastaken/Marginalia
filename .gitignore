@@ -1,0 +1,5 @@
+# Per-user Claude Code settings — not shared
+.claude/settings.local.json
+
+# Vendored docs checkout, if one is made inside the repo for verification
+.claude/extern/

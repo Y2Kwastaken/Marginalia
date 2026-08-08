@@ -1,0 +1,40 @@
+# Docs deliberately NOT indexed, and why.
+# Machine-readable companion to the "Do not read" sections in topics/*.md.
+# Maintainer-facing: not read at runtime.
+#
+# Blank lines and # comments ignored. One path per line, relative to
+# src/content/docs/. All */index.mdx sidebar stubs are skipped automatically.
+#
+# To find upstream pages this prong indexes neither here nor in topics/
+# (run from the marginalia repo root after a docs refresh):
+#
+#   DOCS=path/to/papermc-docs/src/content/docs
+#   find "$DOCS/paper/dev" "$DOCS/adventure" -name '*.md' -o -name '*.mdx' \
+#     | sed "s|^$DOCS/||" | grep -v '/index\.mdx$' | sort \
+#     | while read -r p; do
+#         grep -qxF "$p" plugin-dev/topics/_skip.txt && continue
+#         grep -rqF "$p" plugin-dev/topics || echo "unindexed $p"
+#       done
+
+# --- Adventure on other platforms: Paper bundles Adventure natively ---
+adventure/platform/bukkit.mdx
+adventure/platform/bungeecord.mdx
+adventure/platform/fabric.mdx
+adventure/platform/neoforge.mdx
+adventure/platform/modded.mdx
+adventure/platform/spongeapi.mdx
+adventure/platform/viaversion.md
+adventure/platform/implementing.md
+adventure/platform/index.md
+adventure/platform/native.md
+
+# --- Migration guides: only relevant if the user is doing that migration ---
+adventure/migration/index.md
+adventure/migration/adventure-4.x.md
+adventure/migration/bungeecord-chat-api.md
+adventure/migration/text-3.x.md
+
+# --- Overview / meta pages with no actionable API content ---
+adventure/getting-started.mdx
+adventure/faq.md
+adventure/community-libraries.mdx

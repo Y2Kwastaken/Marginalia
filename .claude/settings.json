@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(jq:*)",
+      "Bash(diff:*)",
+      "Bash(sort:*)",
+      "Bash(du:*)",
+      "Bash(stat:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git clone --filter=blob:none --sparse https://github.com/PaperMC/docs.git:*)",
+      "Bash(git -C * sparse-checkout:*)",
+      "Bash(git -C * rev-parse:*)",
+      "Bash(git -C * pull --ff-only:*)",
+      "Bash(curl -s -H User-Agent* https://fill.papermc.io/*)",
+      "Bash(curl -s -H User-Agent* https://api.github.com/repos/PaperMC/*)"
+    ]
+  }
+}
