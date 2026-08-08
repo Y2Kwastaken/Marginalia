@@ -61,19 +61,19 @@ Everything useful in this skill comes from the people who wrote the PaperMC docu
 repository has many contributors. I personally send thanks to them all, and in particular to the top
 contributors below (`PaperMC/docs`, fetched 2026-08-08):
 
-| | | |
+| Contributors | | |
 |---|---|---|
-| [zlataovce](https://github.com/zlataovce) — 159 | [olijeffers0n](https://github.com/olijeffers0n) — 112 | [e-im](https://github.com/e-im) — 98 |
-| [Strokkur424](https://github.com/Strokkur424) — 77 | [kashike](https://github.com/kashike) — 33 | [Doc94](https://github.com/Doc94) — 32 |
-| [powercasgamer](https://github.com/powercasgamer) — 27 | [Machine-Maker](https://github.com/Machine-Maker) — 26 | [4drian3d](https://github.com/4drian3d) — 22 |
-| [Lulu13022002](https://github.com/Lulu13022002) — 20 | [lynxplay](https://github.com/lynxplay) — 20 | [Warriorrrr](https://github.com/Warriorrrr) — 17 |
-| [kennytv](https://github.com/kennytv) — 15 | [Leguan16](https://github.com/Leguan16) — 15 | [MiniDigger](https://github.com/MiniDigger) — 14 |
-| [Timongcraft](https://github.com/Timongcraft) — 14 | [NoahvdAa](https://github.com/NoahvdAa) — 13 | [456dev](https://github.com/456dev) — 13 |
-| [Owen1212055](https://github.com/Owen1212055) — 10 | [Nacioszeczek](https://github.com/Nacioszeczek) — 10 | |
+| [zlataovce](https://github.com/zlataovce) - 159 | [olijeffers0n](https://github.com/olijeffers0n) - 112 | [e-im](https://github.com/e-im) - 98 |
+| [Strokkur424](https://github.com/Strokkur424) - 77 | [kashike](https://github.com/kashike) - 33 | [Doc94](https://github.com/Doc94) - 32 |
+| [powercasgamer](https://github.com/powercasgamer) - 27 | [Machine-Maker](https://github.com/Machine-Maker) - 26 | [4drian3d](https://github.com/4drian3d) - 22 |
+| [Lulu13022002](https://github.com/Lulu13022002) - 20 | [lynxplay](https://github.com/lynxplay) - 20 | [Warriorrrr](https://github.com/Warriorrrr) - 17 |
+| [kennytv](https://github.com/kennytv) - 15 | [Leguan16](https://github.com/Leguan16) - 15 | [MiniDigger](https://github.com/MiniDigger) - 14 |
+| [Timongcraft](https://github.com/Timongcraft) - 14 | [NoahvdAa](https://github.com/NoahvdAa) - 13 | [456dev](https://github.com/456dev) - 13 |
+| [Owen1212055](https://github.com/Owen1212055) - 10 | [Nacioszeczek](https://github.com/Nacioszeczek) - 10 | |
 
 Full list: [github.com/PaperMC/docs/graphs/contributors](https://github.com/PaperMC/docs/graphs/contributors).
 
-Thank you also to the [Adventure](https://github.com/KyoriPowered/adventure) authors — the
+Thank you also to the [Adventure](https://github.com/KyoriPowered/adventure) authors who are the
 `adventure/` section of the docs, and both digests here, are built on that work.
 
 ## Affiliation
