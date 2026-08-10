@@ -10,7 +10,9 @@ The PaperMC docs site is this prong's source of truth, cloned into the project a
 Once per session, before the first lookup:
 
 1. **[bootstrap.md](bootstrap.md)** — clone the docs if missing, refresh if the last fetch was
-   over 30 days ago, and what to do when upstream moves a file.
+   over 30 days ago, and what to do when upstream moves a file. This writes to disk, so it must
+   happen **before or outside plan mode**: if the clone is missing while you are planning, leave
+   plan mode and bootstrap first rather than planning a Paper task from memory.
 2. **[conventions.md](conventions.md)** — how to read these docs without producing broken
    output: version placeholders are literal in the files, `jd:` links are not Java, cross-links
    use slugs that never match file paths, and the `:::caution` blocks carry the real warnings.

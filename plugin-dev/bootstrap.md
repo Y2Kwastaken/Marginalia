@@ -5,6 +5,20 @@ getting that clone, keeping it fresh, and what to do when upstream moves files.
 
 Run the check below **once per session**, before the first doc lookup.
 
+## Plan mode blocks this — bootstrap before you plan
+
+Every step here writes: `git clone`, `git pull`, appending to `.gitignore`. Plan mode is
+read-only, so a planning agent cannot bootstrap — it silently skips setup and plans a Paper task
+from memory, the one failure this skill exists to prevent. The clone is therefore a
+**prerequisite to planning, not a step inside the plan**:
+
+- **Clone already present** → plan mode is fine. Reading the docs is read-only. The staleness
+  refresh (step 2) is the only write, and a slightly stale clone still beats memory — note it and
+  carry on, refresh once you are out of plan mode.
+- **Clone missing** → stop; do not draft a plan yet. Leave plan mode, run step 1 to clone, then
+  re-enter planning with the docs in hand. Cloning is a one-time, ~2 MB, gitignored setup that
+  never touches the user's own tree, so it is safe to do before the plan is approved.
+
 ## 1. Is the clone present?
 
 ```bash
