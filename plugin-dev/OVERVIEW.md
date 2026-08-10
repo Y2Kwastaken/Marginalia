@@ -39,6 +39,8 @@ Always true, and cheaper to carry than to look up.
   ticks slip under server lag.
 - Never hardcode `api-version` or the `paper-api` version. Resolve them — see
   [conventions.md](conventions.md) §1.
+- Need an exact signature the docs do not give? `javap -p` the `paper-api` jar already in the
+  gradle cache — never `jar -xf` it. See [conventions.md](conventions.md) §5.
 
 **Performance**
 - Hot events (`PlayerMoveEvent`, `BlockPhysicsEvent`) fire constantly. Cheapest check first,

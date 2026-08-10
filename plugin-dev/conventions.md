@@ -125,3 +125,37 @@ Thirteen files (mostly `index.mdx` sidebar stubs) have no `slug:` and fall back 
   use.
 - **`version:` frontmatter** — minimum Minecraft/Paper version for that API. Fifteen docs have
   one; `topics/` tables carry it. If the user targets older, that API does not exist for them.
+
+## 5. Probe the compiled API with `javap`, never `jar -xf`
+
+The docs are prose — they do not carry every signature, overload, or enum constant. When you need
+the exact shape of an API and the docs do not give it, read it from the jar the project already
+compiled against. A `compileOnly("io.papermc.paper:paper-api:…")` dependency means gradle has
+**already** downloaded that jar into the cache; read it in place:
+
+```bash
+JAR=$(find ~/.gradle/caches -name 'paper-api-*.jar' \
+        ! -name '*-sources.jar' ! -name '*-javadoc.jar' | head -1)
+javap -p -cp "$JAR" org.bukkit.World
+```
+
+**Never `jar -xf` the jar.** It explodes thousands of `.class` files — JVM bytecode, not readable
+source — into the working directory, and you would have to run `javap` on the result anyway.
+`javap` reads straight out of the jar, writes nothing to disk, and takes the class(es) you name.
+The `-p` flag is load-bearing: without it you only see `public` members and miss protected hooks.
+
+The cached jar **is** the exact build the project links against, so its signatures are
+authoritative for this project — no version-matching risk. If several versions are cached, pick
+the one the project resolved rather than `head -1`. Do not download a separate jar just to check a
+signature.
+
+**When `javap` is not enough** — you need the javadoc prose or real parameter names (`javap`
+prints `arg0`, `arg1`) — read the matching `-sources.jar` instead, pinned to the *same* build:
+
+```bash
+unzip -p "$(find ~/.gradle/caches -name 'paper-api-*-sources.jar' | head -1)" \
+  org/bukkit/World.java
+```
+
+The sources jar is not fetched by default; it is present only if the build (or an IDE sync) asked
+for it. Fall back to `javap` on the main jar, or the `jd:` javadoc (§2), when it is absent.
