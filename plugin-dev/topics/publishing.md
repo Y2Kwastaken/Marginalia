@@ -15,10 +15,10 @@ Paths are relative to `.claude/extern/papermc-docs/src/content/docs/`.
 - **The downloads service is the `fill.papermc.io` v3 API** — the same one `../conventions.md` §1
   uses to resolve versions. `downloads-service.mdx` is the full reference if you need more than
   latest-version lookup.
-- **Every `fill.papermc.io` request must send a User-Agent** naming the software plus a contact
-  URL or email; generic agents are rejected. Use
-  `marginalia-mc/1.0 (+https://claude.com/claude-code)`, or the user's own project
-  identity when writing a script they will ship. See `../conventions.md` §1.
+- **Send the identifying User-Agent on every request** — `fill.papermc.io` *rejects* generic
+  agents, and identifying the caller is the skill's default for all outbound calls (Hangar
+  included), not a fill-only rule. Use `marginalia-mc/1.0 (+https://github.com/Y2Kwastaken/Marginalia)`, or
+  the user's own project identity when writing a script they will ship. See `../conventions.md` §1.
 - **Hangar publishing** has a Gradle plugin and a CI recipe; prefer those over manual uploads
   when the user asks to automate releases.
 - Shade/relocate bundled libraries before publishing, or they will collide with other plugins on

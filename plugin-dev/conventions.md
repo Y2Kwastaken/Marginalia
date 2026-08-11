@@ -19,25 +19,35 @@ The ones you will hit: `\{LATEST_PAPER_RELEASE}`, `\{LATEST_PAPER_BUILD_API_VERS
 **Never copy a placeholder into a real file, and never guess the version.** The docs resolve
 these from the live Paper API at build time; do the same.
 
-### Identify yourself — the fill API requires it
+### Identify yourself on every request
 
-PaperMC requires every request to `fill.papermc.io` to carry a User-Agent that names the
-software and gives a contact URL or email; generic agents (bare `curl`, `wget`) do not qualify.
-Enforcement is not yet switched on — a bare `curl` still returns 200 today — so treat this as a
-stated policy that can start being enforced without notice, and comply regardless. Always export
-this first and pass it on every call:
+Set an identifying User-Agent on **every HTTP request you make while working** — not only
+`fill.papermc.io`, but any curl at all: Hangar, the javadoc host, a downloads mirror, an API you
+hit to check something mid-build. Export it once and pass it on every call:
 
 ```bash
-UA="marginalia-mc/1.0 (+https://claude.com/claude-code)"
+UA="marginalia-mc/1.0 (+https://github.com/Y2Kwastaken/Marginalia)"
+curl -s -H "User-Agent: $UA" https://...
 ```
 
-If the user has their own project identity or contact, prefer theirs — the requirement is that
-the header identifies a real caller, not that it says marginalia.
+PaperMC *requires* it specifically — `fill.papermc.io` rejects a User-Agent that does not name
+the software with a contact URL or email (bare `curl`, `wget` do not qualify). Enforcement is not
+switched on yet — a bare `curl` still returns 200 today — so treat it as a stated policy that can
+start being enforced without notice. But the rule here is broader than that one host: identifying
+the caller on every request is this skill's default, PaperMC or not.
+
+Two carve-outs:
+
+- **Scripts the user ships.** When you write a curl into code the *user* will run, use the user's
+  own project identity/contact, not marginalia — the header must name the real caller. The
+  marginalia UA is for requests *you* make on their behalf during the work.
+- If the user has given you their own identity for your requests too, prefer theirs — the
+  requirement is a real caller, not the literal string marginalia.
 
 ### Resolving versions and builds
 
 ```bash
-UA="marginalia-mc/1.0 (+https://claude.com/claude-code)"
+UA="marginalia-mc/1.0 (+https://github.com/Y2Kwastaken/Marginalia)"
 
 # newest Minecraft version Paper publishes for
 curl -s -H "User-Agent: $UA" https://fill.papermc.io/v3/projects/paper \
